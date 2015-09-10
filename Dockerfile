@@ -1,5 +1,5 @@
 ########################################################################################################################
-# Dockerfile to build an CentOS 7 Linux
+# Dockerfile to build an CentOS 7 Linux with OpenJDK 1.8
 #
 # Based on Centos Linux oficial image provided by hub.docker.com
 #
@@ -41,6 +41,11 @@ MAINTAINER Jose Matias Zuazo jmzuazo@gmail.com
 # image and commit the results. The resulting committed image will be used for the next step in the Dockerfile
 # Usage: RUN <command> (the command is run in a shell - /bin/sh -c - shell form)
 # Usage: RUN ["executable", "param1", "param2"] (exec form)
+
+# Install OpenJDK 1.8
+# Clean repositories cached files
+RUN yum -y install java-1.8.0-openjdk-devel && \
+    yum clean all
 
 ##################### INSTALLATION END #####################
 
